@@ -1,4 +1,8 @@
-kakao.movieSearch = {
+kakao.movie = {
+		
+};
+
+kakao.movie.search = {
 		
 		/**
 		 * 영화검색어 검증 & 검색
@@ -7,8 +11,8 @@ kakao.movieSearch = {
 		 */
 		checkSearchStr : function(_targetId) {
 			var _searchStr = "";
-			if( $('input[name="searchStr"]').length > 0 ) {
-				_searchStr = $('input[name="searchStr"]').val();
+			if( $('input[name="q"]').length > 0 ) {
+				_searchStr = $('input[name="q"]').val();
 				_tStr = $.trim(_searchStr);
 				
 				if( _tStr.length > 0 ) {

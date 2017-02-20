@@ -26,6 +26,12 @@ public interface MovieRepository extends JpaRepository<Movie, Long>  {
 	@Query("SELECT m from Movie m ORDER BY m.movieId DESC")
 	public List<Movie> findAllByMovieIdByDesc();
 	
+	// keyword정렬
+	@Query("SELECT m from Movie m ORDER BY m.keyword ASC")
+	public List<Movie> findAllByKeywordByAsc();
+	@Query("SELECT m from Movie m ORDER BY m.keyword DESC")
+	public List<Movie> findAllByKeywordByDesc();
+	
 	// title정렬
 	@Query("SELECT m from Movie m ORDER BY m.title ASC")
 	public List<Movie> findAllByTitleByAsc();

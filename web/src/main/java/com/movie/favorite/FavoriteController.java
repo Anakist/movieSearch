@@ -61,7 +61,7 @@ public class FavoriteController {
 		
 		model.addAttribute("movieList", mList);
 		
-		return "favorite/list";
+		return "favorite/favoriteList";
 	}
 	
 	/**
@@ -103,8 +103,8 @@ public class FavoriteController {
 	 * @param ord
 	 * @return
 	 */
-	@RequestMapping("/order")
-//	@PostMapping("/order")
+//	@RequestMapping("/order")
+	@PostMapping("/order")
 	@Transactional
 	public String orderBy(Model model, @RequestParam("ctg") String ctg, @RequestParam("ord") String ord){
 		List<Movie> mList = new ArrayList<Movie>();
@@ -112,15 +112,34 @@ public class FavoriteController {
 		ctg = ctg.toLowerCase(Locale.ENGLISH);
 		ord = ord.toLowerCase(Locale.ENGLISH);
 		
+		LOG.info("ctg : " + ctg);
+		LOG.info("ord : " + ord);
+		
 		// TODO : Dynamic Query.....
-		if( "movieId".equals(ctg) && "asc".equals(ord) ) mList = movieRepository.findAllByMovieIdByAsc();
-		if( "movieId".equals(ctg) && "desc".equals(ord) ) mList = movieRepository.findAllByMovieIdByAsc();
-		if( "grade".equals(ctg) && "asc".equals(ord) ) mList = movieRepository.findAllByGradesByAsc();
-		if( "grade".equals(ctg) && "desc".equals(ord) ) mList = movieRepository.findAllByGradesByDesc();
-		if( "title".equals(ctg) && "asc".equals(ord) ) mList = movieRepository.findAllByTitleByAsc();
-		if( "title".equals(ctg) && "desc".equals(ord) ) mList = movieRepository.findAllByTitleByDesc();
-		if( "year".equals(ctg) && "asc".equals(ord) ) mList = movieRepository.findAllByYearByAsc();
-		if( "year".equals(ctg) && "desc".equals(ord) ) mList = movieRepository.findAllByYearByDesc();
+		if( "movieId".equals(ctg) )  {
+			if( "asc".equals(ord) ) mList = movieRepository.findAllByMovieIdByAsc();
+			else mList = movieRepository.findAllByMovieIdByAsc();
+		}
+		
+		if( "grades".equals(ctg) ) {
+			if( "asc".equals(ord) ) mList = movieRepository.findAllByGradesByAsc();
+			else mList = movieRepository.findAllByGradesByDesc();
+		}
+		
+		if( "keyword".equals(ctg) ) {
+			if( "asc".equals(ord) ) mList = movieRepository.findAllByKeywordByAsc();
+			else mList = movieRepository.findAllByKeywordByDesc();
+		}
+		
+		if( "title".equals(ctg) ) {
+			if( "asc".equals(ord) ) mList = movieRepository.findAllByTitleByAsc();
+			else mList = movieRepository.findAllByTitleByDesc();
+		}
+		
+		if( "year".equals(ctg) ) {
+			if( "asc".equals(ord) ) mList = movieRepository.findAllByYearByAsc();
+			else mList = movieRepository.findAllByYearByDesc();
+		} 
 		
 //		mList.stream().sorted(Comparator.comparing(Movie::getId).reversed()).collect(Collectors.toList());
 		
@@ -137,7 +156,7 @@ public class FavoriteController {
 		
 		model.addAttribute("movieList", mList);
 		
-		return "favorite/list";
+		return "favorite/favoriteList";
 	}
 	
 	/**

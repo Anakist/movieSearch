@@ -40,7 +40,7 @@ kakao.common = {
 			    	if( tCnt > 0 ) {
 			    		var _url = "/add";
 			    		r = r.channel;
-			    		alert("?");
+			    		
 			    		var movieKword = "";
 			    		var movieTitle = "";
 			    		var actor = "";

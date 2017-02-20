@@ -34,6 +34,10 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-jdbc')
 	compile('org.projectlombok:lombok:1.16.6')
+	
+	// Naver Lucy XssFilter
+	compile("com.navercorp.lucy:lucy-xss:1.6.3")
+    compile("com.navercorp.lucy:lucy-xss-servlet:2.0.0")
 
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-devtools')
