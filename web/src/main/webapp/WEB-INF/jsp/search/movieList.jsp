@@ -13,7 +13,7 @@
 				<ul>
 					<li>
 						<input type="text" name="q" size="10" maxlength="10" alt="검색어" value="" />
-						<input type="button" onclick="javascript:kakao.movie.search.checkSearchStr('searchResult');" alt="검색" value="검색" />
+						<input type="button" onclick="javascript:kakao.movie.checkSearchStr('${apiKey}',document.forms['searchForm'], 'searchResult');" alt="검색" value="검색" />
 						<%--
 						<input type="hidden" name="result" value="10" />
 						<input type="hidden" name="output" value="json" />

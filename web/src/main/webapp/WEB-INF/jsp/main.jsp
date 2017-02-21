@@ -14,7 +14,7 @@
 					<a href="/search">영화검색</a>
 				</li>
 				<li>
-					<a href="/list">북마크</a>
+					<a href="/favorite">북마크</a>
 				</li>
 			</ul>
 		</div>
