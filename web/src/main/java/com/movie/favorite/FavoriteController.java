@@ -132,7 +132,7 @@ public class FavoriteController {
 	 * @param ord
 	 * @return
 	 */
-//	@RequestMapping("/order")
+//	@RequestMapping("/favorite/order")
 	@PostMapping("/favorite/order")
 	@Transactional
 	// parameter명과 변수명이 같을 경우 @RequestParam("P")에서 ("P") 생략 가능 
@@ -144,33 +144,35 @@ public class FavoriteController {
 		ctg = ctg.toLowerCase(Locale.ENGLISH);
 		ord = ord.toLowerCase(Locale.ENGLISH);
 		
+		movieRepository.findAllByOrderByMovieIdAsc();
+		
 		LOG.info("ctg : " + ctg);
 		LOG.info("ord : " + ord);
 		try {
 			// TODO : Dynamic Query.....
 			if( "movieId".equals(ctg) )  {
-				if( "asc".equals(ord) ) mList = movieRepository.findAllByMovieIdByAsc();
-				else mList = movieRepository.findAllByMovieIdByAsc();
+				if( "asc".equals(ord) ) mList = movieRepository.findAllByOrderByMovieIdAsc();
+				else mList = movieRepository.findAllByOrderByMovieIdDesc();
 			}
 			
 			if( "grades".equals(ctg) ) {
-				if( "asc".equals(ord) ) mList = movieRepository.findAllByGradesByAsc();
-				else mList = movieRepository.findAllByGradesByDesc();
+				if( "asc".equals(ord) ) mList = movieRepository.findAllByOrderByGradesAsc();
+				else mList = movieRepository.findAllByOrderByGradesDesc();
 			}
 			
 			if( "keyword".equals(ctg) ) {
-				if( "asc".equals(ord) ) mList = movieRepository.findAllByKeywordByAsc();
-				else mList = movieRepository.findAllByKeywordByDesc();
+				if( "asc".equals(ord) ) mList = movieRepository.findAllByOrderByKeywordAsc();
+				else mList = movieRepository.findAllByOrderByKeywordDesc();
 			}
 			
 			if( "title".equals(ctg) ) {
-				if( "asc".equals(ord) ) mList = movieRepository.findAllByTitleByAsc();
-				else mList = movieRepository.findAllByTitleByDesc();
+				if( "asc".equals(ord) ) mList = movieRepository.findAllByOrderByTitleAsc();
+				else mList = movieRepository.findAllByOrderByTitleDesc();
 			}
 			
 			if( "year".equals(ctg) ) {
-				if( "asc".equals(ord) ) mList = movieRepository.findAllByYearByAsc();
-				else mList = movieRepository.findAllByYearByDesc();
+				if( "asc".equals(ord) ) mList = movieRepository.findAllByOrderByYearAsc();
+				else mList = movieRepository.findAllByOrderByYearDesc();
 			}
 			
 			retMap.put("errCd", "0");

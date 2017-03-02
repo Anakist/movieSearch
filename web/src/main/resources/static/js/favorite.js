@@ -3,13 +3,13 @@ kakao.movie.favorite = {
 		searchList : function( _targetDiv) {
 			var _url = "/favorite/list";
 			var kakaoJQuery = new KakaoJQuery();
-			
+			console.log("A");
 			kakaoJQuery.ajaxLoad(_url, null, function(responseData) {
 				var htmlRendering = "";
 				var _tmpData = eval(responseData);
 				var jsonData = _tmpData.responseJSON;
-				
-				if( jsonData != null && jsonData.errCd == "0" ) {
+				console.log();
+				if( jsonData != null && jsonData.errCd == "0" && jsonData.movieList.length > 0 ) {
 					$.each(jsonData.movieList, function(i, data){
 						htmlRendering += "<ul>"
 									  + "	<li>제목 : " + data.title + "</li>"
@@ -52,7 +52,7 @@ kakao.movie.favorite = {
 				var _tmpData = eval(responseData);
 				var jsonData = _tmpData.responseJSON;
 				
-				if( jsonData != null && jsonData.errCd == "0" ) {
+				if( jsonData != null && jsonData.errCd == "0" && (typeof jsonData.movieList !== 'undefined') ) {
 					$.each(jsonData.movieList, function(i, data){
 						htmlRendering += "<ul>"
 									  + "	<li>제목 : " + data.title + "</li>"

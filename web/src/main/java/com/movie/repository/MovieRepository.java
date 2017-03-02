@@ -21,33 +21,43 @@ public interface MovieRepository extends JpaRepository<Movie, Long>  {
 	public List<Movie> findAll();
 	
 	// movieId정렬
-	@Query("SELECT m from Movie m ORDER BY m.movieId ASC")
-	public List<Movie> findAllByMovieIdByAsc();
-	@Query("SELECT m from Movie m ORDER BY m.movieId DESC")
-	public List<Movie> findAllByMovieIdByDesc();
+//	@Query("SELECT m from Movie m ORDER BY m.movieId ASC")
+//	public List<Movie> findAllByMovieIdByAsc();
+	public List<Movie> findAllByOrderByMovieIdAsc();
+//	@Query("SELECT m from Movie m ORDER BY m.movieId DESC")
+//	public List<Movie> findAllByMovieIdByDesc();
+	public List<Movie> findAllByOrderByMovieIdDesc();
 	
 	// keyword정렬
-	@Query("SELECT m from Movie m ORDER BY m.keyword ASC")
-	public List<Movie> findAllByKeywordByAsc();
-	@Query("SELECT m from Movie m ORDER BY m.keyword DESC")
-	public List<Movie> findAllByKeywordByDesc();
+//	@Query("SELECT m from Movie m ORDER BY m.keyword ASC")
+//	public List<Movie> findAllByKeywordByAsc();
+	public List<Movie> findAllByOrderByKeywordAsc();
+//	@Query("SELECT m from Movie m ORDER BY m.keyword DESC")
+//	public List<Movie> findAllByKeywordByDesc();
+	public List<Movie> findAllByOrderByKeywordDesc();
 	
 	// title정렬
-	@Query("SELECT m from Movie m ORDER BY m.title ASC")
-	public List<Movie> findAllByTitleByAsc();
-	@Query("SELECT m from Movie m ORDER BY m.title DESC")
-	public List<Movie> findAllByTitleByDesc();
+//	@Query("SELECT m from Movie m ORDER BY m.title ASC")
+//	public List<Movie> findAllByTitleByAsc();
+	public List<Movie> findAllByOrderByTitleAsc();
+//	@Query("SELECT m from Movie m ORDER BY m.title DESC")
+//	public List<Movie> findAllByTitleByDesc();
+	public List<Movie> findAllByOrderByTitleDesc();
 	
 	// grades정렬
-	@Query("SELECT m from Movie m ORDER BY m.grades ASC")
-	public List<Movie> findAllByGradesByAsc();
-	@Query("SELECT m from Movie m ORDER BY m.grades DESC")
-	public List<Movie> findAllByGradesByDesc();
+//	@Query("SELECT m from Movie m ORDER BY m.grades ASC")
+//	public List<Movie> findAllByGradesByAsc();
+	public List<Movie> findAllByOrderByGradesAsc();
+//	@Query("SELECT m from Movie m ORDER BY m.grades DESC")
+//	public List<Movie> findAllByGradesByDesc();
+	public List<Movie> findAllByOrderByGradesDesc();
 	
 	// year정렬
-	@Query("SELECT m from Movie m ORDER BY m.year ASC")
-	public List<Movie> findAllByYearByAsc();
-	@Query("SELECT m from Movie m ORDER BY m.year DESC")
-	public List<Movie> findAllByYearByDesc();
+//	@Query("SELECT m from Movie m ORDER BY m.year ASC")
+//	public List<Movie> findAllByYearByAsc();
+	public List<Movie> findAllByOrderByYearAsc();
+//	@Query("SELECT m from Movie m ORDER BY m.year DESC")
+//	public List<Movie> findAllByYearByDesc();
+	public List<Movie> findAllByOrderByYearDesc();
 	
 }

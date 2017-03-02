@@ -89,7 +89,7 @@ public class TestFavoriteController {
 		// stream 종단
 		
 //		List<Movie> dList = mList.stream().sorted(Comparator.comparing(Movie::getId).reversed()).collect(Collectors.toList());
-		List<Movie> dList = tRepositTory.findAllByMovieIdByAsc();
+		List<Movie> dList = tRepositTory.findAllByOrderByMovieIdAsc();
 		
 		dList.stream().filter(m -> {
 			System.out.println(">>>>> testOrderBy Param filter : " + m.getTitle());
